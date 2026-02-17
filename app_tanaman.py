@@ -54,8 +54,9 @@ if image is not None:
             st.success("### Hasil Analisa:")
             st.write(response.text)
             
-            except Exception as e:
-            st.error(f"Waduh, ada kendala koneksi: {e}")
+         except Exception as e:
+         st.error(f"Waduh, ada kendala koneksi: {e}")
 
 st.divider()
 st.info("Aplikasi ini terhubung langsung dengan database AI Google secara online.")
+

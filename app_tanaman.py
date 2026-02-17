@@ -36,7 +36,7 @@ if image is not None:
     with st.spinner('Sedang menganalisa dengan database online...'):
         try:
             # Menggunakan model Gemini Vision
-            model = genai.GenerativeModel('gemini-1.5-flash')
+            model = genai.GenerativeModel('models/gemini-1.5-flash-latest')
             
             # Perintah untuk AI (Prompt)
             prompt = """
@@ -60,3 +60,4 @@ if image is not None:
 st.divider()
 
 st.info("Aplikasi ini terhubung langsung dengan database AI Google secara online.")
+

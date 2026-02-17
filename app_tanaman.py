@@ -5,7 +5,7 @@ from PIL import Image
 # --- KONFIGURASI API ---
 # Ganti "KODE_API_KAMU" dengan kunci yang kamu dapat dari Google AI Studio
 KUNCI_API = "AIzaSyDxQCr8yQvuxpRBhDUNbzY8sxBb2XH98EA"
-genai.configure(api_key=API_KEY)
+genai.configure(api_key=KUNCI_API)
 
 st.set_page_config(page_title="AI Dokter Tanaman", layout="centered")
 st.title("🌿 Dokter Tanaman AI (Online)")
@@ -59,3 +59,4 @@ if image is not None:
 
 st.divider()
 st.info("Aplikasi ini terhubung langsung dengan database AI Google secara online.")
+

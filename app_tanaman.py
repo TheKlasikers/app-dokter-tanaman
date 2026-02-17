@@ -34,7 +34,7 @@ if image is not None:
     st.caption("Aplikasi Dokter Tanaman v2.2 - Powered by Google Gemini AI")
     
     with st.spinner('Sedang menganalisa dengan database online...'):
-         try:
+        try:
             # Menggunakan model Gemini Vision
             model = genai.GenerativeModel('models/gemini-1.5-flash-latest')
             
@@ -47,16 +47,15 @@ if image is not None:
             Jawab dalam Bahasa Indonesia yang mudah dimengerti petani.
             """
             
-        # Kirim gambar ke AI
-        response = model.generate_content([prompt, image])
+            # Kirim gambar ke AI
+            response = model.generate_content([prompt, image])
             
-        # Tampilkan Hasil
-    st.success("### Hasil Analisa:")
-    st.write(response.text)
+            # Tampilkan Hasil
+            st.success("### Hasil Analisa:")
+            st.write(response.text)
             
-    except Exception as e:
-    st.error(f"Waduh, ada kendala koneksi: {e}")
+            except Exception as e:
+            st.error(f"Waduh, ada kendala koneksi: {e}")
 
 st.divider()
 st.info("Aplikasi ini terhubung langsung dengan database AI Google secara online.")
-

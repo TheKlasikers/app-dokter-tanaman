@@ -1,12 +1,11 @@
 import streamlit as st
 import google.generativeai as genai
 from PIL import Image
-import os
 
 # --- KONFIGURASI API ---
 # Ganti "KODE_API_KAMU" dengan kunci yang kamu dapat dari Google AI Studio
 os.environ["GOOGLE_API_USE_MTLS"] = "never"
-genai.configure(api_key=API_KEY, transport="rest")
+genai.configure(api_key=KUNCI_API)
 
 st.set_page_config(page_title="AI Dokter Tanaman", layout="centered")
 st.title("🌿 Dokter Tanaman AI (Online)")
@@ -32,7 +31,7 @@ if image is not None:
     st.image(image, caption="Foto yang akan dianalisa", use_container_width=True)
 
     st.divider()
-    st.caption("v2.8 - Force Stable Route")
+    st.caption("Aplikasi Dokter Tanaman v3.0")
     
     with st.spinner('Sedang menganalisa dengan database online...'):
         try:

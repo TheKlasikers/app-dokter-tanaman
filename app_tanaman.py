@@ -34,7 +34,7 @@ if image is not None:
     st.caption("Aplikasi Dokter Tanaman v2.2 - Powered by Google Gemini AI")
     
     with st.spinner('Sedang menganalisa dengan database online...'):
-    try:
+         try:
             # Menggunakan model Gemini Vision
             model = genai.GenerativeModel('models/gemini-1.5-flash-latest')
             
@@ -59,3 +59,4 @@ if image is not None:
 
 st.divider()
 st.info("Aplikasi ini terhubung langsung dengan database AI Google secara online.")
+

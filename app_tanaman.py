@@ -31,7 +31,7 @@ if image is not None:
     st.image(image, caption="Foto yang akan dianalisa", use_container_width=True)
 
     st.divider()
-    st.caption("Aplikasi Dokter Tanaman v2.2 - Powered by Google Gemini AI")
+    st.caption("Jalur Stable")
     
     with st.spinner('Sedang menganalisa dengan database online...'):
         try:

@@ -5,7 +5,6 @@ import os
 
 # --- KONFIGURASI API ---
 # Ganti "KODE_API_KAMU" dengan kunci yang kamu dapat dari Google AI Studio
-os.environ["GOOGLE_API_USE_MTLS"] = "never"
 KUNCI_API = "AIzaSyDxQCr8yQvuxpRBhDUNbzY8sxBb2XH98EA"
 genai.configure(api_key=KUNCI_API)
 
@@ -33,7 +32,7 @@ if image is not None:
     st.image(image, caption="Foto yang akan dianalisa", use_container_width=True)
 
     st.divider()
-    st.caption("Aplikasi Dokter Tanaman v3.1")
+    st.caption("v3.5 - Jalur Stabil")
     
     with st.spinner('Sedang menganalisa dengan database online...'):
         try:

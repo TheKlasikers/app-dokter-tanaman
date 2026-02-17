@@ -1,63 +1,25 @@
 import streamlit as st
-import google.generativeai as genai
+import requests
+import base64
 from PIL import Image
+import io
 
-# --- KONFIGURASI API ---
-# Ganti "KODE_API_KAMU" dengan kunci yang kamu dapat dari Google AI Studio
 KUNCI_API = "AIzaSyDxQCr8yQvuxpRBhDUNbzY8sxBb2XH98EA"
-genai.configure(api_key=KUNCI_API)
+URL_API = f"https://generativelanguage.googleapis.com/v1/models/gemini-1.5-flash:generateContent?key={KUNCI_API}"
 
-st.set_page_config(page_title="AI Dokter Tanaman", layout="centered")
-st.title("🌿 Dokter Tanaman AI (Online)")
-st.write("Gunakan Kamera atau Upload foto untuk diagnosa penyakit tanaman.")
+st.set_page_config(page_title="Dokter Tanaman AI", layout="centered")
+st.title("🌿 Dokter Tanaman AI (Final Fix)")
 
-# --- UPLOAD GAMBAR ---
-tab1, tab2 = st.tabs(["📸 Ambil Foto (Kamera)", "📁 Upload File (Galeri)"])
+st.write("---")
+klik_analisa = st.button("2. KLIK INI UNTUK ANALISA")
+st.write("---")
 
-image = None
-
-with tab1:
-     cam_file = st.camera_input("Klik tombol di bawah untuk ambil foto daun")
-     if cam_file:
-        image = Image.open(cam_file)
-
-with tab2:
-     uploaded_file = st.file_uploader("Pilih foto dari galeri HP...", type=["jpg", "jpeg", "png"])
-
-if uploaded_file:
-    image = Image.open(uploaded_file)
-
-if image is not None:
-    st.image(image, caption="Foto yang akan dianalisa", use_container_width=True)
-
-    st.divider()
-    st.caption("v3.5 - Jalur Stabil")
-    
-    with st.spinner('Sedang menganalisa dengan database online...'):
-        try:
-            # Menggunakan model Gemini Vision
-            model = genai.GenerativeModel('models/gemini-1.5-flash')
-            
-            # Perintah untuk AI (Prompt)
-            prompt = """
-            Kamu adalah pakar tanaman profesional. Lihat foto ini dan berikan:
-            1. Nama penyakit tanaman tersebut.
-            2. Gejala yang terlihat.
-            3. Solusi pengobatan yang efektif dan aman.
-            Jawab dalam Bahasa Indonesia yang mudah dimengerti petani.
-            """
-            
-            # Kirim gambar ke AI
-            response = model.generate_content([prompt, image])
-            
-            # Tampilkan Hasil
-            st.success("### Hasil Analisa:")
-            st.write(response.text)
-            
-        except Exception as e:
-            st.error(f"Waduh, ada kendala koneksi: {e}")
-
+file_gambar = st.file_uploader("Upload foto daun...", type=["jpg", "png", "jpeg"])
+if file_gambar:
+    img = Image.open(file_gambar)
+    st.image(img, caption="Foto Berhasil Diupload", use_container_width=True)
+elif klik_analisa and not file_gambar:
+    st.warning("Waduh Bro, fotonya di-upload dulu baru klik tombolnya!")
+   
 st.divider()
-st.info("Aplikasi ini terhubung langsung dengan database AI Google secara online.")
-
-
+st.caption("Versi 6.1 - Anti 404 & Anti Ghosting")

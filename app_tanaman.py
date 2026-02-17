@@ -35,24 +35,24 @@ if image is not None:
     
           with st.spinner('Sedang menganalisa dengan database online...'):
           try:
-            # Menggunakan model Gemini Vision
-            model = genai.GenerativeModel('models/gemini-1.5-flash-latest')
+              # Menggunakan model Gemini Vision
+              model = genai.GenerativeModel('models/gemini-1.5-flash-latest')
             
-            # Perintah untuk AI (Prompt)
-            prompt = """
-            Kamu adalah pakar tanaman profesional. Lihat foto ini dan berikan:
-            1. Nama penyakit tanaman tersebut.
-            2. Gejala yang terlihat.
-            3. Solusi pengobatan yang efektif dan aman.
-            Jawab dalam Bahasa Indonesia yang mudah dimengerti petani.
-            """
+              # Perintah untuk AI (Prompt)
+              prompt = """
+              Kamu adalah pakar tanaman profesional. Lihat foto ini dan berikan:
+              1. Nama penyakit tanaman tersebut.
+              2. Gejala yang terlihat.
+              3. Solusi pengobatan yang efektif dan aman.
+              Jawab dalam Bahasa Indonesia yang mudah dimengerti petani.
+              """
             
-            # Kirim gambar ke AI
-            response = model.generate_content([prompt, image])
+              # Kirim gambar ke AI
+              response = model.generate_content([prompt, image])
             
-            # Tampilkan Hasil
-            st.success("### Hasil Analisa:")
-            st.write(response.text)
+              # Tampilkan Hasil
+              st.success("### Hasil Analisa:")
+              st.write(response.text)
             
         except Exception as e:
             st.error(f"Waduh, ada kendala koneksi: {e}")
@@ -60,6 +60,7 @@ if image is not None:
 st.divider()
 
 st.info("Aplikasi ini terhubung langsung dengan database AI Google secara online.")
+
 
 
 

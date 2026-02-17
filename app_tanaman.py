@@ -5,7 +5,7 @@ from PIL import Image
 # --- KONFIGURASI API ---
 # Ganti "KODE_API_KAMU" dengan kunci yang kamu dapat dari Google AI Studio
 API_KEY = "AIzaSyDxQCr8yQvuxpRBhDUNbzY8sxBb2XH98EA"
-genai.configure(api_key=API_KEY)
+genai.configure(api_key=API_KEY, transport="rest")
 
 st.set_page_config(page_title="AI Dokter Tanaman", layout="centered")
 st.title("🌿 Dokter Tanaman AI (Online)")
@@ -31,7 +31,7 @@ if image is not None:
     st.image(image, caption="Foto yang akan dianalisa", use_container_width=True)
 
     st.divider()
-    st.caption("Jalur Stable")
+    st.caption("v2.7 - Jalur Rest API")
     
     with st.spinner('Sedang menganalisa dengan database online...'):
         try:
